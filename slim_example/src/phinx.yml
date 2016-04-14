@@ -1,0 +1,16 @@
+paths:
+    migrations: ../db/migrations
+    seeds: ../db/seeds
+
+environments:
+    default_migration_table: phinxlog
+    default_database: development
+
+    development:
+        adapter: mysql
+        host: localhost
+        name: connect_me
+        user: root
+        pass: shmily
+        port: 3306
+        charset: utf8
