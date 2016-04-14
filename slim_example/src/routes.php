@@ -37,7 +37,7 @@ $app->post('/savedetails', function (Request $request,Response $response) {
     $user_mapper = new UserMapper($this->db);
     $user_mapper->save($user_details);
 
-    $response = $response->withRedirect("connected you");
+    $response->getBody()->write(var_export($user_data,true));
     return $response;
 });
 /*
