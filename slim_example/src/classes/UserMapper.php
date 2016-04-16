@@ -14,9 +14,9 @@ class UserMapper extends Mapper
     }
 
     public function getUserById($id_new) {
-        $sql = "SELECT * from user where id_new = :id";
+        $sql = "SELECT * from user where id = :id_new";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(["id_new" => $id]);
+        $stmt->execute(["id_new" => $id_new]);
 
         return new UserEntity($stmt->fetch());
 

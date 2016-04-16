@@ -18,13 +18,25 @@ $app->get('/user', function (Request $request, Response $response) {
     $mapper = new UserMapper($this->db);
     $users = $mapper->getUsers();
     
-    $response = $this->view->render($response, "home.phtml", ["users" => $users]);
+    $response = $this->view->render($response, "home.phtml", ["users" => $users, "router" => $this->router]);
     //$response->getBody()->write(var_export($users, true));
     
     
     return $response;
 });
 
+$app->get('/user-detail/{id}', function (Request $request, Response $response,$args) {
+    $this->logger->addInfo("User");
+    $user_id = (int)$args['id'];
+    $mapper = new UserMapper($this->db);
+    $user = $mapper->getUserById($user_id);
+    
+    //$response = $this->view->render($response, "home.phtml", ["users" => $users, "router" => $this->router]);
+    $response->getBody()->write(var_export($user, true));
+    
+    
+    return $response;
+})->setName('user-detail');
 
 $app->post('/savedetails', function (Request $request,Response $response) {
     $data = $request->getParsedBody();

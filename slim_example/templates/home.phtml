@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-<h1>USEERS</h1>
+<h1>USERS</h1>
 
 <?php
 if($data['users'] && is_array($data['users'])):
@@ -12,24 +12,27 @@ if($data['users'] && is_array($data['users'])):
 <table class="pure-table">
     <tr>
         <th>Username</th>
+        <th>Id</th>
         <th>Age</th>
         <th>Location</th>
     </tr>
 
 <?php
     $odd = 1;
-    foreach($data['users'] as $post): ?>
+    foreach($data['users'] as $user): ?>
 
         <tr <?=$odd ? "class=\"pure-table-odd\"" : ""; ?>>
-        <td><?=$post->getUsername() ?></td>
-        <td><?=$post->getAge() ?> </td>
-        <td><?=$post->getLocation() ?> </td>
-        
-        
-    </tr>
+        <td>
+        <a href="<?=$router->pathFor('user-detail', ['id' => $user->getId()])?>">
+        <?=$user->getUsername() ?>
+        </a>
+        </td>
+        <td><?=$user->getId() ?> </td>
+        <td><?=$user->getAge() ?> </td>
+        <td><?=$user->getLocation() ?> </td></tr>
 
-<?php 
-    $odd = $odd ? 0 : 1;
+    <?php 
+        $odd = $odd ? 0 : 1;
     endforeach; ?>
 </table>
 <?php else: ?>

@@ -11,6 +11,7 @@ class UserEntity
         $this->name = $data['username'];
         $this->age = $data['age'];
         $this->location = $data['location'];
+        $this->id = $data['id'];
     }
 
     public function getId() {
