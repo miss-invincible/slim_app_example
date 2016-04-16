@@ -17,8 +17,8 @@ $app->get('/user', function (Request $request, Response $response) {
 	$this->logger->addInfo("User List");
     $mapper = new UserMapper($this->db);
     $users = $mapper->getUsers();
-
-    $response = $this->view->render($response, "home.phtml", ["users" => $users, "router" => $this->router]);
+    
+    $response = $this->view->render($response, "home.phtml", ["users" => $users]);
     //$response->getBody()->write(var_export($users, true));
     
     
