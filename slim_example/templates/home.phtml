@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Connect Me</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+<body>
+<h1>Your Connections</h1>
+
+<?php
+	 $data;   
+    foreach($data["users"] as $user): 
+    	$user_details = new UserEntity($user);
+    	echo user_details->getUsername();
+    	echo $data[users];
+        echo $data->getUsername();
+?>
+        <td><?=$ticket->getAge() ?></td>
+        <td><?=$ticket->getLocation() ?> ...</td>
+        <td>
+            <a href="<?=$router->pathFor('ticket-detail', ['id' => $ticket->getId()])?>">view</a>
+        </td>
+    </tr>
+
+
+
+</body>
+</html>

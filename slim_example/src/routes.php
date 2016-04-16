@@ -18,8 +18,8 @@ $app->get('/user', function (Request $request, Response $response) {
     $mapper = new UserMapper($this->db);
     $users = $mapper->getUsers();
 
-    
-    $response->getBody()->write(var_export($users, true));
+    $response = $this->view->render($response, "home.phtml", ["users" => $users, "router" => $this->router]);
+    //$response->getBody()->write(var_export($users, true));
     
     
     return $response;
