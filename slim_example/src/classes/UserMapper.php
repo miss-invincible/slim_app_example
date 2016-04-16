@@ -13,6 +13,8 @@ class UserMapper extends Mapper
         return $results;
     }
 
+   
+
     public function getUserById($id_new) {
         $sql = "SELECT * from user where id = :id_new";
         $stmt = $this->db->prepare($sql);
