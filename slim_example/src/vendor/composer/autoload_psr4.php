@@ -11,7 +11,7 @@ return array(
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
-    'Slim\\Views\\' => array($vendorDir . '/slim/php-view/src'),
+    'Slim\\Views\\' => array($vendorDir . '/slim/php-view/src', $vendorDir . '/slim/twig-view/src'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),

@@ -18,3 +18,15 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
 };
+
+$container['view'] = function ($container) {
+    $view = new \Slim\Views\Twig( __DIR__.'/../templates', [
+        'cache' => false
+    ]);
+    $view->addExtension(new \Slim\Views\TwigExtension(
+        $container['router'],
+        $container['request']->getUri()
+    ));
+
+    return $view;
+};
